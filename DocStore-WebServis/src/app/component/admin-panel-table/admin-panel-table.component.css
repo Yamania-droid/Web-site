@@ -1,0 +1,88 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+table {
+    width: 100%;
+}
+
+.example-table-container {
+    position: relative;
+    height: 400px;
+    overflow: auto;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.findbutton {
+    color: white;
+    background-color: rgba(34, 32, 32, 0.637);
+    width: 100px;
+    border-radius: 9px;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.adminButton {
+    cursor: pointer;
+    border: medium none;
+    background-image: none;
+    background: transparent;
+    float: left;
+    background-color: transparent;
+}
+
+.example-section {
+    margin: 0px 0;
+    background-color: #fff;
+    background-blend-mode: inherit;
+    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+    width: auto;
+}
+
+.example-margin {
+    margin: 0 12px;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 4px;
+}
+
+.example-form-field {
+    margin: 0 8px 16px 0;
+}
+
+.filture {
+    max-width: 500px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.parent {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.block {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}

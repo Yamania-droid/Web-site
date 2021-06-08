@@ -1,0 +1,154 @@
+<ng-container class="parents " *ngIf="statusSpiner">
+    <mat-spinner class="block"></mat-spinner>
+</ng-container>
+<ng-container *ngIf="!statusSpiner">
+
+    <div class="main">
+        <div class="child">
+            <mat-card class="example-card">
+                <mat-card-header class="buttonpanel">
+                    <div class="controlButton">
+                        <button class="backbutton" routerLink="/admin-panel/auth_yes">
+                        <span class="material-icons">
+                            reply
+                            </span>
+             
+                    </button>
+                    </div>
+                    <div class="controlButton">
+                        <button mat-raised-button (click)="openDialog()" class="backbutton">  <span title="Добавить связь" class="material-icons">
+                        add
+                        </span></button>
+                    </div>
+                    <div class="controlButton">
+                        <button class="backbutton" (click)="openUpdateDocument()">
+                            <span  title="Редактировать документ" class="material-icons">
+                                edit
+                                </span>
+                        </button>
+
+
+                    </div>
+                    <mat-card-title>
+                        {{document.document.name}}
+                    </mat-card-title>
+                    <mat-card-subtitle>{{document.document.issueDate| date:'dd.MM.yyyy'}} - {{document.document.expirationDate | date:'dd.MM.yyyy'}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="data" *ngIf="document.document.docType">
+                        <label>Тип документа:</label>
+                        <p class="fieldData">{{document.document.docType}}</p>
+                    </div>
+                    <div class="data" *ngIf="document.document.certCode">
+                        <label>Код документа:</label>
+                        <p class="fieldData">{{document.document.certCode}}</p>
+                    </div>
+                    <div class="data" *ngIf="document.document.docCode">
+                        <label>Код документа:</label>
+                        <p class="fieldData">{{document.document.docCode}}</p>
+                    </div>
+                    <div class="data" *ngIf="document.document.authorityName">
+                        <label>Код документа:</label>
+                        <p class="fieldData">{{document.document. authorityName}}</p>
+                    </div>
+                    <div class="data" *ngIf="document.document.vendorName">
+                        <label>Поставщик:</label>
+                        <p class="fieldData">{{document.document.vendorName}}</p>
+                    </div>
+                </mat-card-content>
+
+            </mat-card>
+        
+            <div  *ngFor="let item of document.document.file">
+
+
+              
+                    <!-- <mat-card class="picture" *ngIf="item"> -->
+
+                     
+                       
+                        <!-- <a  (click)="OpedD0wnoloadFile()"  *ngIf="item.indexOf('.jpg')">
+                            Files
+                        </a> -->
+
+    
+
+                        <!-- <a   (click)="OpedD0wnoloadFile()" *ngIf="item.indexOf('.jpg') > 0"> -->
+                            <!-- <img class="pict" (click)="OpedD0wnoloadFile()" src="{{item}}" alt="Скачать"> -->
+                            
+                        <!-- </a> -->
+                        <a  (click)="OpedD0wnoloadFile()" *ngIf="item.indexOf('.pdf') > 0">
+                            <!-- <mat-icon src="item ">picture_as_pdf</mat-icon> -->
+                            <pdf-viewer [src]="'item'" [zoom]="0.5" [page]="1" [autoresize]="true" [page]="1"></pdf-viewer>
+                        </a>
+
+                 
+<!--</mat-card> -->
+              
+
+
+            </div>
+
+
+            <div class="uploadForm ">
+                <!-- <input type="file " #File >
+                <button class="uploadButton ">Загрузить</button> -->
+                <!-- <button type="button " mat-raised-button (click)="fileInput.click() ">Choose File</button>
+                <input hidden (change)="onFileSelected() " #fileInput type="file " id="file "> -->
+                <div  class="filesButton"  *ngIf="statueFile" >
+               
+                    <button class="filesButton"  (click)="OpedD0wnoloadFile()" mat-raised-button>Файлы</button>
+                
+                </div>
+                
+                <div  class="filesButton" *ngIf="!statueFile">
+               
+                    <button class="filesButton"  (click)="NoData()" mat-raised-button>Файлы</button>
+                
+                </div>
+
+                <input type="file">
+            </div>
+
+        </div>
+
+
+        <div class="childtable ">
+
+            <table mat-table [dataSource]="dataSource ">
+                <div>
+                    <ng-container matColumnDef="productCode">
+                        <th mat-header-cell *matHeaderCellDef> Имя продукта </th>
+                        <td mat-cell *matCellDef="let element"> {{element.productCode}} </td>
+                    </ng-container>
+                </div>
+                <div>
+                    <ng-container matColumnDef="productName" value="Подробнее ">
+                        <th mat-header-cell *matHeaderCellDef>Код </th>
+                        <td mat-cell *matCellDef="let element "> {{element.productName}} </td>
+                    </ng-container>
+                </div>
+                <div>
+                    <ng-container matColumnDef="admin" value="Подробнее ">
+                        <th mat-header-cell *matHeaderCellDef>Управление</th>
+                        <td mat-cell *matCellDef="let element ">
+                            <button class="adminButton" (click)="unbindProduct(element) "> <span title = "Отвязать продукт от текущего сертификата "  class="material-icons ">
+                    delete_outline
+                    </span></button>
+                        </td>
+                    </ng-container>
+                </div>
+
+                <div>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns "></tr>
+                    <tr mat-row *matRowDef=" let element; columns: displayedColumns; "></tr>
+
+                </div>
+
+            </table>
+
+        </div>
+
+
+    </div>
+</ng-container>

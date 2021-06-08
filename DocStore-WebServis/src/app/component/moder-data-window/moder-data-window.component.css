@@ -1,0 +1,10 @@
+.element {
+    display: flex;
+    justify-content: space-between;
+}
+
+.save {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

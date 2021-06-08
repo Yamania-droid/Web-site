@@ -1,0 +1,73 @@
+<mat-card-content>
+
+    <div class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Имя </mat-label>
+            <input matInput placeholder="Введите имя" #name (input)="getName(name.value)">
+        </mat-form-field>
+    </div>
+    <div class="element">
+        <!-- Поменять -->
+        <mat-form-field class="example-full-width">
+            <!-- <mat-label>Тип</mat-label>
+            <input matInput placeholder="Введите Тип" #docType (input)="getDocType(docType.value)"> -->
+            <mat-label>Тип документа</mat-label>
+            <mat-select>
+                <mat-option (click)="getDocType(SRT.value)" #SRT value="1">Сертификат соответствия</mat-option>
+                <mat-option (click)="getDocType(DEC.value)" #DEC value="2">Декларация о соответствии</mat-option>
+                <mat-option (click)="getDocType(OTP.value)" #OTP value="3">Отказное письмо</mat-option>
+                <mat-option (click)="getDocType(INP.value)" #INP value="4">Инфоормационное письмо</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Код документа</mat-label>
+            <input matInput placeholder="Введите код документа" #certCode (input)="getCertCode(certCode.value)">
+        </mat-form-field>
+    </div>
+    <div class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Код компании</mat-label>
+            <input matInput placeholder="Введите код" #authorityCode (input)="getAuthorityCode(authorityCode.value)">
+        </mat-form-field>
+    </div>
+    <div class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Дата добавления</mat-label>
+            <input matInput placeholder="Введите дату ГГ.ММ.ДД" #issueDate (input)="getIssueDate(issueDate.value)">
+        </mat-form-field>
+    </div>
+    <div class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Дата окончания</mat-label>
+            <input matInput placeholder="Введите дату ГГ.ММ.ДД" #expirationDate (input)="getExpirationDate(expirationDate.value)">
+        </mat-form-field>
+    </div>
+    <div class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Код документа</mat-label>
+            <input matInput placeholder="Введите код" #docCode (input)="getDocCode(docCode.value)">
+        </mat-form-field>
+    </div>
+    <div (click)="saveChange()" class="save">
+        <button mat-raised-button>Добавить</button>
+    </div>
+</mat-card-content>
+
+
+<!-- -{
+"name" : ''ООО \"ЗЕТ-ТЕСТ\",
+"docType" : 2,
+"file" : -[
+],
+"certCode" : 01624-19,
+"authorityCode" : ООО \"ЗЕТ-ТЕСТ\",
+"authorityName" : ,
+"issueDate" : 2019-07-09T00:00:00,
+"expirationDate" : 2033-07-08T00:00:00,
+"formCode" : ,
+"vendorName" : ,
+"docCode" : B8MEKA456,
+"deleted" : false
+} -->

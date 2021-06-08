@@ -1,0 +1,128 @@
+<ng-container class="parents " *ngIf="statusSpiner">
+    <mat-spinner class="block"></mat-spinner>
+</ng-container>
+<ng-container *ngIf="!statusSpiner">
+
+
+    <div>
+        <div class="container">
+            <mat-form-field>
+                <mat-label>Поиск</mat-label>
+                <input matInput #myFindInput (input)="tableFilter(myFindInput.value)" [value]="" placeholder="Введите артикул товара или часть наименования">
+                <!--button mat-button (click)="findForClick()" class="findbutton">Найти</button-->
+                <button mat-button matSuffix mat-icon-button class="findbutton" aria-label="Clear" (click)="findForClick()">Поиск</button>
+                <!-- <button class="findbutton"><span class="material-icons">
+                    search
+                    </span>
+                </button> -->
+            </mat-form-field>
+
+
+        </div>
+
+        <div class="container">
+            <div class="filture">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Типы документации</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let t of types" (click)="setType(t)" [value]="t.typeName">
+                            {{t.typeName}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="filture">
+                <mat-form-field color="blue" appearance="fill">
+                    <mat-label>Дата начальная</mat-label>
+                    <input matInput #myPicker [matDatepicker]="picker1" (dateInput)="inputEvent($event)">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="filture">
+                <mat-form-field color="blue" appearance="fill">
+                    <mat-label>Дата конечная</mat-label>
+                    <input matInput [matDatepicker]="picker2" (dateChange)="changeEvent($event)">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+
+                </mat-form-field>
+            </div>
+            <div class="filture">
+
+                <button title="Добавить документ" class="adminButton" (click)="openAddDoc()">
+                    <span class="material-icons">
+                        library_add
+                    </span>
+                </button>
+
+                <button *ngIf="statusFilt" title="Сброс фильров" (click)="OffFilture()" class="adminButton">
+                    <span class="material-icons">
+                        sync
+                        </span>
+                </button>
+
+
+
+
+
+            </div>
+        </div>
+        <div class="child">
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <!-- Колонна Имя -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Имя </th>
+                    <td mat-cell *matCellDef="let element" class="clickable"> {{element.name}} </td>
+                </ng-container>
+                <!-- Тип документа -->
+                <ng-container matColumnDef="docType">
+                    <th mat-header-cell *matHeaderCellDef> Тип документа </th>
+                    <td mat-cell *matCellDef="let element"> {{element.docType}} </td>
+                </ng-container>
+                <!-- Номер сертификата -->
+                <ng-container matColumnDef="certCode" value="Подробнее">
+                    <th mat-header-cell *matHeaderCellDef>Номер сертификата</th>
+                    <td mat-cell *matCellDef="let element"> {{element.certCode}} </td>
+                </ng-container>
+                <!-- Дата окончания сертификата -->
+                <ng-container matColumnDef="issueDate">
+                    <th mat-header-cell *matHeaderCellDef> Дата добавления сертификата </th>
+                    <td mat-cell *matCellDef="let element"> {{element.issueDate | date:'dd.MM.yyyy '}} </td>
+                </ng-container>
+                <!-- Кол-во элементов -->
+                <ng-container matColumnDef="expirationDate">
+                    <th mat-header-cell *matHeaderCellDef> Дата окончания сертификата</th>
+                    <td mat-cell *matCellDef="let element"> {{element.expirationDate | date:'dd.MM.yyyy' }} </td>
+                </ng-container>
+                <!-- Кнопки для редактирования -->
+                <ng-container matColumnDef="admin_panel">
+                    <th mat-header-cell *matHeaderCellDef>Взаимодействие</th>
+                    <td mat-cell *matCellDef="let element; columns: displayedColumns;">
+                        <button class="adminButton"><span   title = "Удалить" class="material-icons"  (click)="deleteDocument(element)"  >clear</span></button>
+
+                        <button class="adminButton"><span title = "Подробнее" class="material-icons" [routerLink]="['/admin-panel/bind-product', element.idDoc ]" >arrow_forward_ios</span></button>
+                        <!-- <button class="adminButton"><span title = "Изменить" class="material-icons" (click)="Test()">restore_page</span></button>  -->
+                    </td>
+                </ng-container>
+                <!-- " -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row class="clickable" *matRowDef="let element ; columns: displayedColumns;"></tr>
+                <span class="material-icons">
+                clear
+                </span>
+            </table>
+            <mat-paginator #paginator [length]="totalPage()" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" (page)="getPaginatorData($event)">
+
+            </mat-paginator>
+
+
+
+        </div>
+    </div>
+
+</ng-container>
+<!--h1 mat-dialog-title> Отсутствует соединение с сервером </h1-->

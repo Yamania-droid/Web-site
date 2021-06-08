@@ -1,0 +1,21 @@
+<div>
+    <form class="formReg">
+        <section>
+            <h2>Вход в админ панель</h2>
+            <form>
+                <div>
+                    <input type="text" #myGmail (input)="gmail(myGmail.value)" [value]="mail" [(ngModel)]="userName">
+                    <label>Логин</label>
+                </div>
+                <div>
+                    <input type="password" #myPass (input)="password(myPass.value)" [value]="pass">
+                    <label>Пароль</label>
+                </div>
+                <div class="buttonReg">
+                    <input (click)="getToken()" type="Submit" value="Вход">
+                </div>
+            </form>
+        </section>
+    </form>
+
+</div>

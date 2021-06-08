@@ -1,0 +1,84 @@
+<mat-card-title>
+    Редактирование документа
+</mat-card-title>
+
+<mat-card-subtitle>{{document.document.issueDate| date:'dd.MM.yyyy'}} - {{document.document.expirationDate | date:'dd.MM.yyyy'}}</mat-card-subtitle>
+<mat-card-content>
+
+    <div *ngIf="document.document.authorityName" class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Имя документа</mat-label>
+            <input matInput placeholder="Введите имя" #Name (input)="getAuthorityName(Name.value)" value="{{document.document.authorityName}}">
+        </mat-form-field>
+    </div>
+    <div *ngIf="document.document.certCode" class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Код сертификата</mat-label>
+            <input matInput placeholder="Введите код" #certCode (input)="getCertCode(certCode.value)" value="{{document.document.certCode}}">
+        </mat-form-field>
+    </div>
+    <div *ngIf="document.document.docCode" class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Код документа</mat-label>
+            <input matInput placeholder="Введите код" #docCode (input)="getDocCode(docCode.value)" value="{{document.document.docCode}}">
+        </mat-form-field>
+    </div>
+    <div *ngIf="document.document.docType" class="element">
+        <!-- <mat-form-field class="example-full-width">
+            <mat-label>Тип документа</mat-label> -->
+        <!-- <input matInput placeholder="Введите код" #docType (input)="getDocType(docType.value)" value="{{document.document.docType}}"> -->
+        <mat-form-field class="example-full-width">
+            <mat-label>Тип документа</mat-label>
+            <mat-select>
+                <mat-option (click)="getDocType(SRT.value)" #SRT value="1">Сертификат соответствия</mat-option>
+                <mat-option (click)="getDocType(DEC.value)" #DEC value="2">Декларация о соответствии</mat-option>
+                <mat-option (click)="getDocType(OTP.value)" #OTP value="3">Отказное письмо</mat-option>
+                <mat-option (click)="getDocType(INP.value)" #INP value="4">Инфоормационное письмо</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div *ngIf="document.document.docTypeNavigation" class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Навигация</mat-label>
+            <input matInput placeholder="Введите код" #Navigation (input)="getDocTypeNavigation(Navigation.value)" value="{{document.document.docTypeNavigation}}">
+        </mat-form-field>
+    </div>
+    <div *ngIf="document.document.issueDate" class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Дата добавления</mat-label>
+            <input matInput placeholder="Введите дату" #issureDate (input)="getIssureDate(issureDate.value)" value="{{document.document.issueDate }}">
+        </mat-form-field>
+    </div>
+    <div *ngIf="document.document.expirationDate" class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Дата окончания</mat-label>
+            <input matInput placeholder="Введите дату" #expiration (input)="getExpirationDate(expiration.value)" value="{{document.document.expirationDate }}">
+        </mat-form-field>
+    </div>
+    <div *ngIf="document.document.name" class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Имя документа</mat-label>
+            <input matInput placeholder="Введите дату" #docName (input)="getName(docName.value)" value="{{document.document.name}}">
+        </mat-form-field>
+    </div>
+    <div class="save">
+
+        <button mat-raised-button (click)="saveChange()">Сохранить</button>
+
+    </div>
+    <!-- authorityCode: "ООО "ЦЕНТР""
+        authorityName: ""
+        certCode: "ЦО-151"
+        docCode: "12DEKA"
+        docType: 3
+        docTypeNavigation: null
+        documentProducts: []
+        expirationDate: "2022-03-15T00:00:00"
+        file: ["http://172.16.41.66/"]
+        formCode: ""
+        idDoc: 62
+        issueDate: "2019-03-15T00:00:00"
+        name: ""
+        vendorName: "" -->
+
+</mat-card-content>

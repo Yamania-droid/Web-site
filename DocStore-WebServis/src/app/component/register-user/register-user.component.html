@@ -1,0 +1,20 @@
+<div class="element">
+    <mat-form-field class="example-full-width">
+        <mat-label>Логин</mat-label>
+        <input matInput placeholder="Введите логин" #login (input)="Login(login.value)">
+    </mat-form-field>
+</div>
+<div class="element">
+    <mat-form-field class="example-full-width">
+        <mat-label>Пароль</mat-label>
+        <input matInput placeholder="Введите пароль" #Pass (input)="Password(Pass.value)">
+    </mat-form-field>
+</div>
+<mat-label>Роль</mat-label>
+<mat-select>
+    <mat-option (click)="Role(admin.value)" #admin value="admin">Admin</mat-option>
+    <mat-option (click)="Role(manager.value)" #manager value="manager">Manager</mat-option>
+</mat-select>
+<div class="saveButton">
+    <button mat-raised-button (click)="completeRegister()">Зарегистрировать</button>
+</div>

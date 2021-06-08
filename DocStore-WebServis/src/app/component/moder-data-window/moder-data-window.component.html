@@ -1,0 +1,18 @@
+<mat-card-content>
+
+    <div class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Логин</mat-label>
+            <input type="text" matInput placeholder="Введите имя" #Name (input)="getNewLogin(Name.value)">
+        </mat-form-field>
+    </div>
+    <div class="element">
+        <mat-form-field class="example-full-width">
+            <mat-label>Hовый пароль</mat-label>
+            <input matInput placeholder="Введите пароль" #Pass (input)="getNewPassData(Pass.value)">
+        </mat-form-field>
+    </div>
+    <div class="save">
+        <button mat-raised-button (click)="getNewUser()">Сохранить</button>
+    </div>
+</mat-card-content>

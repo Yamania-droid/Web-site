@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.flex-nav {
+    justify-content: center;
+}
+
+.logout {
+    justify-content: flex-end;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.adminButton {
+    cursor: pointer;
+    border: medium none;
+    background-image: none;
+    background: transparent;
+    float: left;
+    background-color: transparent;
+}

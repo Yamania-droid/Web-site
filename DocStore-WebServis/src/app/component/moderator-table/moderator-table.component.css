@@ -1,0 +1,39 @@
+    table {
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .adminButton {
+        cursor: pointer;
+        border: medium none;
+        background-image: none;
+        background: transparent;
+        float: left;
+        background-color: transparent;
+    }
+    
+    .parent {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: auto;
+    }
+    
+    .block {
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+    }
+    
+    .saveButton {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+    }

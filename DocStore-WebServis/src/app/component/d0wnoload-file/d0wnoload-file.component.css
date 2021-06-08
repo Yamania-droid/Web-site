@@ -1,0 +1,25 @@
+
+.pict{
+    height: 300px;
+    width: 500px;
+    margin-top: 10px;
+    }
+.downButton{
+    width: 150px;
+    height: 30px;
+    text-decoration: none;
+    padding-top: 9px;
+    color: #2951d4;
+    text-align: center;
+    line-height: 20px;
+    display: block;
+    margin: 20px auto;
+    font: normal 17px arial;
+}
+.pict{
+ 
+    height: 720px;
+    width: 1280px;
+    margin-top: 10px;
+    }
+

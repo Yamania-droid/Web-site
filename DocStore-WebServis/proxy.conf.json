@@ -1,0 +1,10 @@
+{
+    "/getdocumentsext/": {
+        "target": "http://172.16.41.66",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "http://172.16.41.66/getdocumentsext/": ""
+        }
+    }
+}

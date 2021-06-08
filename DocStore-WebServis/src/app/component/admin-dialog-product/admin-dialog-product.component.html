@@ -1,0 +1,45 @@
+<div class="mainForm">
+    <div class="findpatch">
+        <div class="findelement">
+            <mat-form-field>
+                <mat-label>Поиск</mat-label>
+                <input matInput #myFindInput placeholder="Введите код продукта" (input)="serchData(myFindInput.value)">
+            </mat-form-field>
+        </div>
+        <div class="findelement">
+            <button mat-button matSuffix mat-icon-button (click)="findForClick()" class="findbutton" aria-label="Clear">Поиск</button>
+        </div>
+    </div>
+
+    <div class="example-table-container">
+        <div>
+            <table mat-table [dataSource]="dataSource">
+
+
+                <ng-container matColumnDef="docType">
+                    <th mat-header-cell *matHeaderCellDef class="columnName"> Имя продукта </th>
+                    <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="certCode" value="Подробнее">
+                    <th mat-header-cell *matHeaderCellDef>Код </th>
+                    <td mat-cell *matCellDef="let element"> {{element.productCode}} </td>
+                </ng-container>
+                <ng-container matColumnDef="binding" value="Подробнее">
+                    <th mat-header-cell *matHeaderCellDef>Привязать</th>
+                    <td mat-cell *matCellDef="let element"> <button class="adminButton" (click)="bindingSET(element)"> <span class="material-icons">
+                    add
+                    </span></button> </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef=" let element; columns: displayedColumns;" title="Нажмите для создания связи"></tr>
+            </table>
+        </div>
+    </div>
+    <mat-paginator #paginator [length]="100000" [pageSize]="10" [pageSizeOptions]="[10]" (page)="getPaginatorData($event)">
+
+    </mat-paginator>
+
+    <button class="adminButton" (click)="getDocId()">Сохранить</button>
+</div>

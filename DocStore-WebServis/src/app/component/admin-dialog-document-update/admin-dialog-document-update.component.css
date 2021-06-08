@@ -1,0 +1,29 @@
+.element {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dot {
+    margin-left: 30px;
+}
+
+.dataText {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.save {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

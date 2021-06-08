@@ -1,0 +1,21 @@
+<div class="main">
+    <div class="flex-nav">
+        <button mat-button routerLink="">Поиск сертификатов</button>
+        <button mat-button routerLink="/login" *ngIf='!isLoggedIn()'>Авторизация</button>
+
+        <button mat-button routerLink="/admin-panel/auth_yes" *ngIf='isLoggedIn()'>Таблица контроля</button>
+        <button mat-button routerLink="/admin-panel/account-logic" *ngIf='isLoggedInModerator()'> Модераторы </button>
+        <!--  -->
+
+    </div>
+    <div class="logout" *ngIf='isLoggedIn()'>
+
+        <button class="adminButton" title="Выход" (click)="logout()">
+        <span class="material-icons">
+            logout
+            </span>
+        
+    </button>
+
+    </div>
+</div>

@@ -1,0 +1,137 @@
+<ng-container class="parents " *ngIf="statusSpiner">
+    <mat-spinner class="block"></mat-spinner>
+</ng-container>
+<ng-container *ngIf="!statusSpiner">
+
+
+    <div class="parent">
+        <div class="child">
+
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <div mat-card-avatar class="Example home icon">
+                        <button class="backbutton" routerLink="">
+                            <span class="material-icons">
+                                reply
+                                </span>
+                    </button>
+                    </div>
+                    <mat-card-title>
+                        {{document.name}}
+                    </mat-card-title>
+                    <mat-card-subtitle>{{document.document.issueDate| date:'dd.MM.yyyy'}} - {{document.document.expirationDate | date:'dd.MM.yyyy'}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="data" *ngIf="document.document.certCode">
+                        <p class="label">Номер Сертификата: </p>
+                        <p class="fieldData">{{document.document.certCode}}</p>
+                    </div>
+                    <div class="data" *ngIf="document.document.authorityCode">
+                        <p class="label">Номер Организации: </p>
+                        <p class="fieldData">{{document.document.authorityCode}}</p>
+                    </div>
+                    <div class="data" *ngIf="document.document.authorityName">
+                        <p class="label">Имя организации: </p>
+                        <p class="fieldData">{{document.document.authorityName}}</p>
+                    </div>
+                    <div class="data" *ngIf="document.document.formCode">
+                        <p class="label">Внутренний код: </p>
+                        <p class="fieldData">{{document.document.formCode}}</p>
+                    </div>
+                    <div class="data" *ngIf="document.document.vendorName">
+                        <p class="label">Имя поставщика: </p>
+                        <p class="fieldData">{{document.document.vendorName}}</p>
+                    </div>
+                    <div class="data" *ngIf="document.document.docTypeNavigation">
+                        <p class="label">Внутренний код: </p>
+                        <p class="fieldData">{{document.document.docTypeNavigation}}</p>
+                    </div>
+
+                </mat-card-content>
+            </mat-card>
+
+
+
+            <mat-card class="example-card" *ngFor="let item of document.document.file" style="margin: 10px auto;">
+
+                <div *ngIf="item">
+                    <!-- <img mat-card-image src="{{item}}"> -->
+                    <!-- Открывает окно картинки  -->
+
+
+                    <a href="{{item}}" *ngIf="item.indexOf('.jpg') > 0">
+                        <img mat-card-image src="{{item}}" alt="Скачать">
+                    </a>
+                    <a href="{{item}}" *ngIf="item.indexOf('.pdf') > 0">
+                        <!-- <mat-icon src="item ">picture_as_pdf</mat-icon> -->
+                        <pdf-viewer [src]="'item'" [zoom]="0.5" [page]="1" [autoresize]="true" [page]="1"></pdf-viewer>
+                    </a>
+
+                    <!-- Почти оно -->
+                    <!-- <a href="{{item}}">
+                        <img mat-card-image src="{{item}}" alt="Скачать">
+
+                    </a> -->
+                </div>
+                <mat-card-footer>
+                    <button (click)="downloadPhoto(item)">Скачать </button>
+                </mat-card-footer>
+
+            </mat-card>
+
+
+        </div>
+        <div class="child">
+            <div class="example-table-container">
+                <table mat-table [dataSource]="dataSource">
+
+                    <!-- Название -->
+                    <ng-container matColumnDef="productName">
+                        <th mat-header-cell *matHeaderCellDef> Название </th>
+                        <td mat-cell *matCellDef="let documentProducts">
+                            <div class="tabletext">
+                                {{documentProducts.productName}}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <!-- Код продукта -->
+                    <ng-container matColumnDef="productCode">
+                        <th mat-header-cell *matHeaderCellDef> Код продукта </th>
+                        <td mat-cell *matCellDef="let documentProducts">
+                            <div class="tabletext">
+                                {{documentProducts.productCode}}
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+
+
+
+<!-- <div class="flex-container-two">
+                <div class="flex-item-two">
+
+                    <img *ngFor="let item of document.file" mat-card-image src="{{item}}">
+                </div>
+                <div class="flex-item-two">
+                    <pdf-viewer *ngFor="let item of document.file" [show-all]="false" [src]="item" [zoom]="0.2" [rotation]="45"></pdf-viewer>
+                </div>
+            </div> -->
+<!-- <ul>
+
+                    <li class="blanklist" *ngFor="let item of document.file">
+                        <a href="{{item}}">
+                            < <input type="button" (click)="downloadPhoto(item)" value="Download"> >
+                            <span class="material-icons">description</span > {{item}}
+                        </a>
+                    </li>
+                </ul-->

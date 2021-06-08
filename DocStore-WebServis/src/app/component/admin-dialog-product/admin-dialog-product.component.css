@@ -1,0 +1,41 @@
+.mainForm {
+    min-width: 700px;
+}
+
+table {
+    width: 100%;
+}
+
+.findbutton {
+    color: white;
+    background-color: rgba(204, 197, 197, 0.637);
+    width: 100px;
+    border-radius: 9px;
+}
+
+.findpatch {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    width: 100%;
+}
+
+.findelement {
+    margin: 3px;
+}
+
+.example-table-container {
+    position: relative;
+    height: auto;
+    overflow: auto;
+}
+
+.adminButton {
+    cursor: pointer;
+    border: medium none;
+    background-image: none;
+    background: transparent;
+    float: left;
+    background-color: transparent;
+}

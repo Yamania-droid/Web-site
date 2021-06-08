@@ -1,0 +1,12 @@
+.notFound{
+text-align: center;
+padding: 70px;
+font-size: 60px;
+border-radius: 3px rgba(255, 255, 255, 0.425);
+
+}
+
+.notFoundSmall{
+    text-align: center; 
+    font-size: 30px;
+}

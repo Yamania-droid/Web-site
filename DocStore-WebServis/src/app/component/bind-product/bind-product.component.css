@@ -1,0 +1,163 @@
+.example-card {
+    max-width: auto;
+    position: relative;
+}
+
+table {
+    min-width: 900px;
+    max-width: 900px;
+}
+
+.backbutton {
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.main {
+    flex-direction: row;
+    display: flex;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
+}
+
+.data {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.fieldData {
+    font-size: 13px;
+    font-weight: bolder;
+    margin-left: 10px;
+}
+
+.child {
+    margin: 10px;
+    width: 550px;
+    height: 500px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.childtable {
+    margin: 10px;
+    width: 800px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.mat-column-certCode {
+    width: 60px;
+}
+
+.data {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.label {
+    font-size: 9px;
+}
+
+.fieldData {
+    font-size: 13px;
+    font-weight: bold
+}
+
+.columnName {
+    text-align: center;
+}
+
+.adminButton {
+    cursor: pointer;
+    border: medium none;
+    background-image: none;
+    background: transparent;
+    float: left;
+    background-color: transparent;
+}
+
+.tableWidth {
+    min-width: 200px;
+}
+
+.buttonpanel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 15px;
+}
+
+.controlButton {
+    justify-content: flex-end;
+    margin-left: 10px;
+}
+
+.example-table-container {
+    position: relative;
+    overflow: auto;
+}
+
+.parent {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.block {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.uploadForm {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.uploadButton {
+    cursor: pointer;
+    color: dimgrey;
+    background-image: none;
+    background: transparent;
+    float: left;
+    background-color: transparent;
+}
+
+pdf-viewer {
+    display: block;
+    height: 500px;
+    width: 515px;
+}
+
+picture {
+    display: flex;
+    justify-content: space-between;
+    /* min-width: 500px;
+    max-width: 500px;
+    min-height: 300px;
+    max-height: 300px;
+    margin: 15px; */
+}
+filesButton{
+    margin-top: 10px;
+}
+.pict{
+height: 300px;
+width: 500px;
+margin-top: 10px;
+}
